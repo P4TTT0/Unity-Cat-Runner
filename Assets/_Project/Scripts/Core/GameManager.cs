@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace CatRunner.Core
@@ -16,15 +17,21 @@ namespace CatRunner.Core
         [SerializeField] private float maxGameSpeed = 15f;
         [SerializeField] private float speedIncreaseRate = 0.1f;
 
+        [Header("Init animation Settings")]
+        [SerializeField] private float cutToTravelDelay = 0.25f;
+        [SerializeField] private float arrivalIntroDuration = 0.8f;
+
         public event Action<GameState> OnGameStateChanged;
+
+        private Coroutine _stateRoutine;
 
         private void Awake()
         {
-            if (Instance != null && Instance != this)
-            {
-                Destroy(gameObject);
-                return;
-            }
+            //if (Instance != null && Instance != this)
+            //{
+            //    Destroy(gameObject);
+            //    return;
+            //}
 
             Instance = this;
         }
@@ -61,6 +68,12 @@ namespace CatRunner.Core
 
         private void HandleStateChange(GameState state)
         {
+            if (_stateRoutine != null)
+            {
+                StopCoroutine(_stateRoutine);
+                _stateRoutine = null;
+            }
+
             switch (state)
             {
                 case GameState.Idle:
@@ -69,6 +82,7 @@ namespace CatRunner.Core
 
                 case GameState.CutYarn:
                     GameSpeed = 0f;
+                    _stateRoutine = StartCoroutine(CutToFastTravelRoutine());
                     break;
 
                 case GameState.FastTravel:
@@ -81,6 +95,7 @@ namespace CatRunner.Core
 
                 case GameState.ArrivalIntro:
                     GameSpeed = 0f;
+                    _stateRoutine = StartCoroutine(ArrivalIntroToPlayingRoutine());
                     break;
 
                 case GameState.Playing:
@@ -114,6 +129,26 @@ namespace CatRunner.Core
         public void RestartGame()
         {
             SetState(GameState.Idle);
+        }
+
+        private IEnumerator CutToFastTravelRoutine()
+        {
+            yield return new WaitForSeconds(cutToTravelDelay);
+
+            if (CurrentState != GameState.CutYarn)
+                yield break;
+
+            SetState(GameState.FastTravel);
+        }
+
+        private IEnumerator ArrivalIntroToPlayingRoutine()
+        {
+            yield return new WaitForSeconds(arrivalIntroDuration);
+
+            if (CurrentState != GameState.ArrivalIntro)
+                yield break;
+
+            SetState(GameState.Playing);
         }
     }
 }
