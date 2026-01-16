@@ -8,12 +8,11 @@ namespace CatRunner.Core
     {
         [SerializeField] private Transform introPoint;
         [SerializeField] private Transform runnerPoint;
-
         [SerializeField] private float travelDuration = 1.2f;
 
         private Coroutine moveRoutine;
 
-        private void OnEnable()
+        private void Start()
         {
             GameManager.Instance.OnGameStateChanged += HandleState;
         }
@@ -34,6 +33,12 @@ namespace CatRunner.Core
             }
         }
 
+        //https://easings.net/#easeInOutCubic
+        private float EaseInOutCubic(float t)
+        {
+            return t < 0.5f ? 4f * t * t * t : 1f - Mathf.Pow(-2f * t + 2f, 3f) / 2f;
+        }
+
         private IEnumerator MoveCamera(Vector3 from, Vector3 to)
         {
             float elapsed = 0f;
@@ -42,11 +47,13 @@ namespace CatRunner.Core
             {
                 elapsed += Time.deltaTime;
                 float t = elapsed / travelDuration;
-                transform.position = Vector3.Lerp(from, to, t);
+                float easedT = EaseInOutCubic(t);
+                var interpolation = Vector3.Lerp(from, to, easedT);
+                transform.position = new Vector3(interpolation.x, interpolation.y, transform.position.z);
                 yield return null;
             }
 
-            transform.position = to;
+            transform.position = new Vector3(to.x, to.y, transform.position.z);
             GameManager.Instance.SetState(GameState.ArrivalIntro);
         }
     }
