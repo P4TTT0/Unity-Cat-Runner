@@ -1,3 +1,4 @@
+using CatRunner.Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,6 +20,7 @@ namespace CatRunner.Menu
         private TrailRenderer _trail;
         private bool _isSwiping;
         private Vector2 _previousWorldPos;
+        private bool _hasCut;
 
         private void Awake()
         {
@@ -88,14 +90,18 @@ namespace CatRunner.Menu
 
         private void CutRopeSegment(GameObject segment)
         {
-            // Destruir el joint para liberar las conexiones
+            if (_hasCut)
+                return;
+
+            _hasCut = true;
+
             var joint = segment.GetComponent<HingeJoint2D>();
             if (joint != null)
-            {
                 Destroy(joint);
-            }
 
             Destroy(segment);
+
+            GameManager.Instance.SetState(GameState.CutYarn);
         }
 
         private Vector2 GetMouseWorldPosition()
