@@ -25,11 +25,13 @@ namespace CatRunner.Player
         {
             _actions.Enable();
             _actions.Player.Jump.performed += OnJumpPerformed;
+            _actions.Player.Jump.canceled += OnJumpCanceled;
         }
 
         private void OnDisable()
         {
             _actions.Player.Jump.performed -= OnJumpPerformed;
+            _actions.Player.Jump.canceled -= OnJumpCanceled;
             _actions.Disable();
         }
 
@@ -37,6 +39,11 @@ namespace CatRunner.Player
         {
             // Opcional: filtrar acá, pero mejor que lo decida el PlayerController.
             playerController.TryJump();
+        }
+
+        private void OnJumpCanceled(InputAction.CallbackContext ctx)
+        {
+            playerController.OnJumpRelease();
         }
     }
 }
