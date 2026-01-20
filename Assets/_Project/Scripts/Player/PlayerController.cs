@@ -187,6 +187,14 @@ namespace CatRunner.Player
             rb.linearVelocity = v;
         }
 
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.tag.Equals("Obstacle"))
+            {
+                GameManager.Instance.SetState(GameState.GameOver);
+            }
+        }
+
 #if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
