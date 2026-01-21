@@ -6,7 +6,7 @@ namespace CatRunner.Environment
     {
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+            if (other.gameObject.tag.Equals("Obstacle"))
             {
                 Destroy(other.gameObject);
             }

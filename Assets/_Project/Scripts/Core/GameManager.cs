@@ -99,6 +99,7 @@ namespace CatRunner.Core
                     break;
 
                 case GameState.Playing:
+                    ScoreManager.Instance.ResetScore();
                     GameSpeed = initialGameSpeed;
                     break;
 
