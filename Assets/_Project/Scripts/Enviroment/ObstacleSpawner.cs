@@ -45,13 +45,16 @@ namespace CatRunner.Environment
             GameObject prefab =
                 obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
 
-            Instantiate(
-                prefab,
-                spawnPoint.position,
-                Quaternion.identity,
-                obstaclesParent
-            );
+            Vector3 spawnPosition = spawnPoint.position;
+
+            if (prefab.TryGetComponent(out ObstacleSpawnConfig config))
+            {
+                spawnPosition.y += config.GetOffsetY();
+            }
+
+            Instantiate(prefab, spawnPosition, Quaternion.identity);
         }
+
 
         private void ResetTimer()
         {

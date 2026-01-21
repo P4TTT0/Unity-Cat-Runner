@@ -101,9 +101,11 @@ GameObject:
   m_Component:
   - component: {fileID: 883911154964550823}
   - component: {fileID: 5712738659535738196}
+  - component: {fileID: 6899345782919096896}
+  - component: {fileID: 7042087131435460908}
   m_Layer: 0
   m_Name: Obstacle_01
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -172,6 +174,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.4439926, y: 1.1973345}
   m_EdgeRadius: 0
+--- !u!114 &6899345782919096896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3312643639915702702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d442583bddf05241a171ecc440de1ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CatRunner.Environment.ObstacleMover
+--- !u!114 &7042087131435460908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3312643639915702702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ccf97fcbc72054d858b7d83b102e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CatRunner.Environment.ObstacleSpawnConfig
+  heightMode: 0
+  fixedOffsetY: 0.5
+  randomOffsetYRange: {x: 1, y: 2.5}
 --- !u!1 &5536426053355679170
 GameObject:
   m_ObjectHideFlags: 0
