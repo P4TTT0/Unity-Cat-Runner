@@ -25,7 +25,7 @@ namespace CatRunner.Environment
             if (GameManager.Instance == null || !GameManager.Instance.IsPlaying())
                 return;
 
-            float baseDelta = GameManager.Instance.GameSpeed * Time.deltaTime;
+            float baseDelta = GameManager.Instance.CurrentSpeed * Time.deltaTime;
 
             for (int i = 0; i < layers.Length; i++)
             {

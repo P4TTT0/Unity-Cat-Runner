@@ -20,7 +20,7 @@ namespace CatRunner.Gameplay
             if (GameManager.Instance == null || !GameManager.Instance.IsPlaying())
                 return;
 
-            float speed = GameManager.Instance.GameSpeed;
+            float speed = GameManager.Instance.CurrentSpeed;
 
             float scoreDelta = speed * pointsPerSpeedUnit * Time.deltaTime * scoreMultiplier;
 

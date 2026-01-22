@@ -17,22 +17,24 @@ namespace CatRunner.Core
         [SerializeField] private float maxGameSpeed = 15f;
         [SerializeField] private float speedIncreaseRate = 0.1f;
 
+        [Header("Speed Multiplier (Crouch / Effects)")]
+        [SerializeField] private float multiplierLerpSpeed = 5f;
+
         [Header("Init animation Settings")]
         [SerializeField] private float cutToTravelDelay = 0.25f;
         [SerializeField] private float arrivalIntroDuration = 0.8f;
 
         public event Action<GameState> OnGameStateChanged;
 
+        public float CurrentSpeed => GameSpeed * _currentMultiplier;
+
         private Coroutine _stateRoutine;
+
+        private float _currentMultiplier = 1f;
+        private float _targetMultiplier = 1f;
 
         private void Awake()
         {
-            //if (Instance != null && Instance != this)
-            //{
-            //    Destroy(gameObject);
-            //    return;
-            //}
-
             Instance = this;
         }
 
@@ -47,8 +49,23 @@ namespace CatRunner.Core
             {
                 IncreaseGameSpeed();
             }
+
+            _currentMultiplier = Mathf.MoveTowards(
+                _currentMultiplier,
+                _targetMultiplier,
+                multiplierLerpSpeed * Time.deltaTime
+            );
         }
 
+        public void SetSpeedMultiplier(float multiplier)
+        {
+            _targetMultiplier = Mathf.Clamp(multiplier, 0.2f, 1f);
+        }
+
+        public void ResetSpeedMultiplier()
+        {
+            _targetMultiplier = 1f;
+        }
         private void IncreaseGameSpeed()
         {
             GameSpeed = Mathf.Min(
@@ -73,6 +90,8 @@ namespace CatRunner.Core
                 StopCoroutine(_stateRoutine);
                 _stateRoutine = null;
             }
+
+            ResetSpeedMultiplier();
 
             switch (state)
             {
@@ -131,7 +150,6 @@ namespace CatRunner.Core
         {
             SetState(GameState.Idle);
         }
-
         private IEnumerator CutToFastTravelRoutine()
         {
             yield return new WaitForSeconds(cutToTravelDelay);

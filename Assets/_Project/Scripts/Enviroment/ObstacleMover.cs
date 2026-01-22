@@ -11,7 +11,7 @@ namespace CatRunner.Environment
             if (GameManager.Instance == null || !GameManager.Instance.IsPlaying())
                 return;
 
-            float speed = GameManager.Instance.GameSpeed;
+            float speed = GameManager.Instance.CurrentSpeed;
             transform.position += Vector3.left * speed * Time.deltaTime;
         }
     }

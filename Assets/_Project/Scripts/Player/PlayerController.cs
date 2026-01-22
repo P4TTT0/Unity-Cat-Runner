@@ -28,23 +28,40 @@ namespace CatRunner.Player
         [SerializeField] private float coyoteTime = 0.1f;
         [SerializeField] private float jumpBufferTime = 0.1f;
 
+        [Header("Crouch")]
+        [SerializeField] private BoxCollider2D standingCollider;
+        [SerializeField] private BoxCollider2D crouchCollider;
+
+        [Header("Fast Fall")]
+        [SerializeField] private float fastFallGravityMultiplier = 2.5f;
+
+        [Header("Crouch Slow World")]
+        [SerializeField, Range(0.2f, 1f)] private float crouchWorldSpeedMultiplier = 0.65f;
+
         private bool _isGrounded;
         private float _coyoteTimer;
         private float _jumpBufferTimer;
         private PlayerMoveMode _moveMode = PlayerMoveMode.Idle;
         private bool _isJumping;
+        private bool _isCrouching;
+        private float _defaultGravityScale;
 
         public static event Action OnReachedRunnerAnchor;
         public bool HasReachedAnchor => _moveMode == PlayerMoveMode.RunningInPlace;
 
         private static readonly int IsGroundedHash = Animator.StringToHash("IsGrounded");
         private static readonly int YVelocityHash = Animator.StringToHash("YVelocity");
-        private static readonly int IsMovingHash = Animator.StringToHash("IsMoving"); 
+        private static readonly int IsMovingHash = Animator.StringToHash("IsMoving");
 
         private void Awake()
         {
             if (rb == null) rb = GetComponent<Rigidbody2D>();
             if (animator == null) animator = GetComponent<Animator>();
+
+            _defaultGravityScale = rb.gravityScale;
+
+            if (standingCollider != null) standingCollider.enabled = true;
+            if (crouchCollider != null) crouchCollider.enabled = false;
         }
 
         private void Start()
@@ -77,6 +94,13 @@ namespace CatRunner.Player
             UpdateGrounded();
             UpdateTimers();
 
+            // Si tocó el piso, gravedad normal siempre
+            if (_isGrounded && rb.gravityScale != _defaultGravityScale)
+                rb.gravityScale = _defaultGravityScale;
+
+            if (_isGrounded && !_isCrouching && GameManager.Instance != null)
+                GameManager.Instance.SetSpeedMultiplier(1f);
+
             animator.SetBool(IsGroundedHash, _isGrounded);
             animator.SetFloat(YVelocityHash, rb.linearVelocity.y);
 
@@ -92,6 +116,34 @@ namespace CatRunner.Player
             if (_isGrounded && rb.linearVelocity.y <= 0f)
             {
                 _isJumping = false;
+            }
+        }
+        public void SetCrouch(bool crouch)
+        {
+            if (_isCrouching == crouch)
+                return;
+
+            _isCrouching = crouch;
+
+            if (standingCollider != null) standingCollider.enabled = !crouch;
+            if (crouchCollider != null) crouchCollider.enabled = crouch;
+
+            // 1) Fast fall si está en el aire
+            if (!_isGrounded)
+            {
+                rb.gravityScale = crouch
+                    ? _defaultGravityScale * fastFallGravityMultiplier
+                    : _defaultGravityScale;
+
+                return;
+            }
+
+            // 2) Slow world si está en el piso
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.SetSpeedMultiplier(
+                    crouch ? crouchWorldSpeedMultiplier : 1f
+                );
             }
         }
 

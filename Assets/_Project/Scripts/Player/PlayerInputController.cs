@@ -1,4 +1,3 @@
-using CatRunner.Core;
 using CatRunner.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -21,29 +20,32 @@ namespace CatRunner.Player
             _actions = new InputSystem_Actions();
         }
 
-        private void OnEnable()
+        private void Start()
         {
             _actions.Enable();
+
             _actions.Player.Jump.performed += OnJumpPerformed;
             _actions.Player.Jump.canceled += OnJumpCanceled;
+
+            _actions.Player.Crouch.started += OnCrouchStarted;
+            _actions.Player.Crouch.canceled += OnCrouchCanceled;
         }
 
         private void OnDisable()
         {
             _actions.Player.Jump.performed -= OnJumpPerformed;
             _actions.Player.Jump.canceled -= OnJumpCanceled;
+
+            _actions.Player.Crouch.started -= OnCrouchStarted;
+            _actions.Player.Crouch.canceled -= OnCrouchCanceled;
+
             _actions.Disable();
         }
 
-        private void OnJumpPerformed(InputAction.CallbackContext ctx)
-        {
-            // Opcional: filtrar acá, pero mejor que lo decida el PlayerController.
-            playerController.TryJump();
-        }
+        private void OnJumpPerformed(InputAction.CallbackContext ctx) => playerController.TryJump();
+        private void OnJumpCanceled(InputAction.CallbackContext ctx) => playerController.OnJumpRelease();
 
-        private void OnJumpCanceled(InputAction.CallbackContext ctx)
-        {
-            playerController.OnJumpRelease();
-        }
+        private void OnCrouchStarted(InputAction.CallbackContext ctx) => playerController.SetCrouch(true);
+        private void OnCrouchCanceled(InputAction.CallbackContext ctx) => playerController.SetCrouch(false);
     }
 }
