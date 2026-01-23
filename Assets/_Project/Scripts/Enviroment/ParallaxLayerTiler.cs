@@ -18,6 +18,7 @@ namespace CatRunner.Environment
 
         private float _tileWidth;
         private Camera _camera;
+        private List<Vector3> _initialPositions = new();
 
         private void Awake()
         {
@@ -39,6 +40,13 @@ namespace CatRunner.Environment
 
             // Ordenamos por posición LOCAL
             tiles.Sort((a, b) => a.localPosition.x.CompareTo(b.localPosition.x));
+
+            // Guardamos las posiciones iniciales
+            _initialPositions.Clear();
+            for (int i = 0; i < tiles.Count; i++)
+            {
+                _initialPositions.Add(tiles[i].localPosition);
+            }
 
             // Calculamos ancho UNA sola vez
             _tileWidth = CalculateTileWidth(tiles[0]) * tileWidthOffset;
@@ -80,6 +88,24 @@ namespace CatRunner.Environment
                 tiles.RemoveAt(0);
                 tiles.Add(leftMost);
             }
+        }
+
+        public void ResetTiles()
+        {
+            if (tiles.Count == 0 || _initialPositions.Count != tiles.Count)
+                return;
+
+            // Reordenar los tiles por su índice original
+            tiles.Sort((a, b) => a.GetSiblingIndex().CompareTo(b.GetSiblingIndex()));
+
+            // Restaurar las posiciones iniciales
+            for (int i = 0; i < tiles.Count; i++)
+            {
+                tiles[i].localPosition = _initialPositions[i];
+            }
+
+            // Reordenar por posición X para el sistema de reciclaje
+            tiles.Sort((a, b) => a.localPosition.x.CompareTo(b.localPosition.x));
         }
 
         private float CalculateTileWidth(Transform tile)
