@@ -33,6 +33,16 @@ namespace CatRunner.Menu
 
         private void Update()
         {
+            if (GameManager.Instance == null || GameManager.Instance.CurrentState != GameState.Idle)
+            {
+                if (_isSwiping)
+                {
+                    _isSwiping = false;
+                    SetTrailActive(false);
+                }
+                return;
+            }
+
             // Detectar inicio del swipe
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {
@@ -146,6 +156,13 @@ namespace CatRunner.Menu
         private void MoveTrailTo(Vector2 worldPos)
         {
             _trailObject.transform.position = new Vector3(worldPos.x, worldPos.y, 0f);
+        }
+
+        public void ResetCutter()
+        {
+            _hasCut = false;
+            _isSwiping = false;
+            SetTrailActive(false);
         }
     }
 }

@@ -1,35 +1,73 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CatRunner.Menu
 {
-    //TODO: Agregar un LineRender entre cada uno de los links para mejorar la apariencia de la cuerda
+    [DisallowMultipleComponent]
     public sealed class RopeController : MonoBehaviour
     {
-        [SerializeField] private YarnLinker _yarnLinker;
-        [SerializeField] private Rigidbody2D _hook;
-        [SerializeField] private GameObject _linkPrefab;
-        [SerializeField] private int _linkCount = 10;
+        [Header("Setup")]
+        [SerializeField] private Transform ropeRoot;
+        [SerializeField] private GameObject ropeSegmentPrefab;
+        [SerializeField] private int segmentCount = 6;
+        [SerializeField] private float segmentSpacing = 0.25f;
 
-        private void Start()
+        [Header("Linking")]
+        [SerializeField] private YarnLinker yarnLinker;
+
+        private readonly List<Rigidbody2D> _segments = new();
+
+        private void Awake()
         {
-            CreateRope();
+            BuildRope();
         }
 
-        private void CreateRope()
+        public void ResetRope()
         {
-            var previousBody = _hook;
-            for (int i = 0; i < _linkCount; i++)
-            {
-                var link = Instantiate(_linkPrefab, transform);
-                var joint = link.GetComponent<HingeJoint2D>();
-                joint.connectedBody = previousBody;
-                previousBody = link.GetComponent<Rigidbody2D>();
+            ClearRope();
+            BuildRope();
+        }
 
-                if (i == _linkCount - 1)
-                {
-                    _yarnLinker.LinkToEndOfRope(previousBody);
-                }
+        private void BuildRope()
+        {
+            _segments.Clear();
+
+            Rigidbody2D previous = null;
+
+            for (int i = 0; i < segmentCount; i++)
+            {
+                Vector3 pos = ropeRoot.position + Vector3.down * (i * segmentSpacing);
+                GameObject segment = Instantiate(ropeSegmentPrefab, pos, Quaternion.identity, ropeRoot);
+
+                Rigidbody2D rb = segment.GetComponent<Rigidbody2D>();
+                HingeJoint2D joint = segment.GetComponent<HingeJoint2D>();
+
+                if (previous != null)
+                    joint.connectedBody = previous;
+
+                previous = rb;
+                _segments.Add(rb);
             }
+
+            if (yarnLinker != null && previous != null)
+            {
+                yarnLinker.LinkToEndOfRope(previous);
+            }
+        }
+
+        private void ClearRope()
+        {
+            if (yarnLinker != null)
+            {
+                yarnLinker.ClearLink();
+            }
+
+            for (int i = ropeRoot.childCount - 1; i >= 0; i--)
+            {
+                Destroy(ropeRoot.GetChild(i).gameObject);
+            }
+
+            _segments.Clear();
         }
     }
 }

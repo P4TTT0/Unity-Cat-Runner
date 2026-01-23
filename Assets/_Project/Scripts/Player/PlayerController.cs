@@ -154,6 +154,28 @@ namespace CatRunner.Player
                 _moveMode = PlayerMoveMode.IntroMove;
                 animator.SetBool(IsMovingHash, true);
             }
+            else if (state == GameState.Idle)
+            {
+                ResetPlayer();
+            }
+        }
+
+        private void ResetPlayer()
+        {
+            _moveMode = PlayerMoveMode.Idle;
+            _isJumping = false;
+            _isCrouching = false;
+            _coyoteTimer = 0f;
+            _jumpBufferTimer = 0f;
+            rb.gravityScale = _defaultGravityScale;
+            rb.linearVelocity = Vector2.zero;
+
+            if (standingCollider != null) standingCollider.enabled = true;
+            if (crouchCollider != null) crouchCollider.enabled = false;
+
+            animator.SetBool(IsMovingHash, false);
+            animator.SetBool(IsGroundedHash, true);
+            animator.SetFloat(YVelocityHash, 0f);
         }
 
         private void MoveToAnchor()
