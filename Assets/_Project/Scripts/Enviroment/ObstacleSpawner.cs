@@ -12,15 +12,42 @@ namespace CatRunner.Environment
         [Header("Hierarchy")]
         [SerializeField] private Transform obstaclesParent;
 
-        [Header("Timing")]
-        [SerializeField] private float minSpawnDelay = 1.2f;
-        [SerializeField] private float maxSpawnDelay = 2.2f;
+        [Header("Spawn Distance (world units)")]
+        [Tooltip("Minimum distance between obstacles")]
+        [SerializeField] private float minSpawnDistance = 6f;
 
-        private float _spawnTimer;
+        [Tooltip("Maximum distance between obstacles")]
+        [SerializeField] private float maxSpawnDistance = 10f;
+
+        private float _distanceAccumulator;
+        private float _nextSpawnDistance;
 
         private void Start()
         {
-            ResetTimer();
+            ResetSpawnDistance();
+
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.OnGameStateChanged += HandleGameState;
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.OnGameStateChanged -= HandleGameState;
+            }
+        }
+
+        private void HandleGameState(GameState state)
+        {
+            if (state == GameState.Idle || state == GameState.ReturnToMenu)
+            {
+                ClearAllObstacles();
+                _distanceAccumulator = 0f;
+                ResetSpawnDistance();
+            }
         }
 
         private void Update()
@@ -28,12 +55,16 @@ namespace CatRunner.Environment
             if (GameManager.Instance == null || !GameManager.Instance.IsPlaying())
                 return;
 
-            _spawnTimer -= Time.deltaTime;
+            float deltaDistance =
+                GameManager.Instance.CurrentSpeed * Time.deltaTime;
 
-            if (_spawnTimer <= 0f)
+            _distanceAccumulator += deltaDistance;
+
+            if (_distanceAccumulator >= _nextSpawnDistance)
             {
                 SpawnObstacle();
-                ResetTimer();
+                _distanceAccumulator = 0f;
+                ResetSpawnDistance();
             }
         }
 
@@ -42,8 +73,7 @@ namespace CatRunner.Environment
             if (obstaclePrefabs.Length == 0)
                 return;
 
-            GameObject prefab =
-                obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
+            GameObject prefab = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
 
             Vector3 spawnPosition = spawnPoint.position;
 
@@ -52,13 +82,25 @@ namespace CatRunner.Environment
                 spawnPosition.y += config.GetOffsetY();
             }
 
-            Instantiate(prefab, spawnPosition, Quaternion.identity);
+            Transform parent = obstaclesParent != null ? obstaclesParent : null;
+
+            Instantiate(prefab, spawnPosition, Quaternion.identity, parent);
         }
 
-
-        private void ResetTimer()
+        private void ResetSpawnDistance()
         {
-            _spawnTimer = Random.Range(minSpawnDelay, maxSpawnDelay);
+            _nextSpawnDistance = Random.Range(minSpawnDistance, maxSpawnDistance);
+        }
+
+        private void ClearAllObstacles()
+        {
+            if (obstaclesParent == null)
+                return;
+
+            for (int i = obstaclesParent.childCount - 1; i >= 0; i--)
+            {
+                Destroy(obstaclesParent.GetChild(i).gameObject);
+            }
         }
     }
 }
