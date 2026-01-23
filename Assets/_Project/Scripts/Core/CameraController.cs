@@ -1,3 +1,4 @@
+using CatRunner.Menu;
 using System.Collections;
 using UnityEngine;
 
@@ -9,6 +10,9 @@ namespace CatRunner.Core
         [SerializeField] private Transform introPoint;
         [SerializeField] private Transform runnerPoint;
         [SerializeField] private float travelDuration = 1.2f;
+        [SerializeField] private RopeController ropeController;
+        [SerializeField] private SwipeCutter swipeCutter;
+
 
         private Coroutine moveRoutine;
 
@@ -24,13 +28,31 @@ namespace CatRunner.Core
 
         private void HandleState(GameState state)
         {
-            if (state == GameState.FastTravel)
-            {
-                if (moveRoutine != null)
-                    StopCoroutine(moveRoutine);
+            if (moveRoutine != null)
+                StopCoroutine(moveRoutine);
 
-                moveRoutine = StartCoroutine(MoveCamera(introPoint.position, runnerPoint.position));
+            switch (state)
+            {
+                case GameState.FastTravel:
+                    moveRoutine = StartCoroutine(
+                        MoveCamera(introPoint.position, runnerPoint.position)
+                    );
+                    break;
+
+                case GameState.ReturnToMenu:
+                    moveRoutine = StartCoroutine(
+                        MoveCamera(runnerPoint.position, introPoint.position, false)
+                    );
+                    break;
             }
+        }
+
+        private void OnReturnToMenuFinished()
+        {
+            ropeController.ResetRope();
+            swipeCutter.ResetCutter();
+
+            GameManager.Instance.SetState(GameState.Idle);
         }
 
         //https://easings.net/#easeInOutCubic
@@ -39,7 +61,7 @@ namespace CatRunner.Core
             return t < 0.5f ? 4f * t * t * t : 1f - Mathf.Pow(-2f * t + 2f, 3f) / 2f;
         }
 
-        private IEnumerator MoveCamera(Vector3 from, Vector3 to)
+        private IEnumerator MoveCamera(Vector3 from, Vector3 to, bool isStarting = true)
         {
             float elapsed = 0f;
 
@@ -54,7 +76,15 @@ namespace CatRunner.Core
             }
 
             transform.position = new Vector3(to.x, to.y, transform.position.z);
-            GameManager.Instance.SetState(GameState.ArrivalIntro);
+            
+            if (isStarting)
+            {
+                GameManager.Instance.SetState(GameState.ArrivalIntro);
+            }
+            else
+            {
+                OnReturnToMenuFinished();
+            }
         }
     }
 

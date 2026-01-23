@@ -8,6 +8,7 @@ namespace CatRunner.Core
         SlowDown,       // Frenada del viaje
         ArrivalIntro,   // Gato baja de la caja
         Playing,        // Endless runner activo
-        GameOver        // Game over, trasncisión al ovillo colgando
+        GameOver,       // Game over, trasncisión al ovillo colgando
+        ReturnToMenu    // Transición de regreso al menú principal
     }
 }

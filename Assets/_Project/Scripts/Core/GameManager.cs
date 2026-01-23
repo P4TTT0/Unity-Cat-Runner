@@ -24,6 +24,9 @@ namespace CatRunner.Core
         [SerializeField] private float cutToTravelDelay = 0.25f;
         [SerializeField] private float arrivalIntroDuration = 0.8f;
 
+        [Header("Game Over Settings")]
+        [SerializeField] private float gameOverDelay = 0.6f;
+
         public event Action<GameState> OnGameStateChanged;
 
         public float CurrentSpeed => GameSpeed * _currentMultiplier;
@@ -124,7 +127,13 @@ namespace CatRunner.Core
 
                 case GameState.GameOver:
                     GameSpeed = 0f;
+                    StartCoroutine(GameOverRoutine());
                     break;
+
+                case GameState.ReturnToMenu:
+                    GameSpeed = 0f;
+                    break;
+
             }
         }
 
@@ -168,6 +177,16 @@ namespace CatRunner.Core
                 yield break;
 
             SetState(GameState.Playing);
+        }
+
+        private IEnumerator GameOverRoutine()
+        {
+            yield return new WaitForSeconds(gameOverDelay);
+
+            if (CurrentState != GameState.GameOver)
+                yield break;
+
+            SetState(GameState.ReturnToMenu);
         }
     }
 }
