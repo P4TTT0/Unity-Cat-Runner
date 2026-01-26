@@ -16,9 +16,13 @@ namespace CatRunner.Menu
         [SerializeField] private YarnLinker yarnLinker;
 
         private readonly List<Rigidbody2D> _segments = new();
+        private Transform _hook;
 
         private void Awake()
         {
+            if (ropeRoot.childCount > 0)
+                _hook = ropeRoot.GetChild(0);
+
             BuildRope();
         }
 
@@ -32,7 +36,7 @@ namespace CatRunner.Menu
         {
             _segments.Clear();
 
-            Rigidbody2D previous = null;
+            Rigidbody2D previous = _hook?.GetComponent<Rigidbody2D>();
 
             for (int i = 0; i < segmentCount; i++)
             {
@@ -64,7 +68,12 @@ namespace CatRunner.Menu
 
             for (int i = ropeRoot.childCount - 1; i >= 0; i--)
             {
-                Destroy(ropeRoot.GetChild(i).gameObject);
+                Transform child = ropeRoot.GetChild(i);
+
+                if (child == _hook)
+                    continue;
+
+                Destroy(child.gameObject);
             }
 
             _segments.Clear();
