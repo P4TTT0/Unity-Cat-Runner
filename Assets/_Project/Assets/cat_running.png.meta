@@ -1,13 +1,22 @@
 fileFormatVersion: 2
-guid: 137dd24a779dfa844a2c6ab501d96759
+guid: d137cb3f9e0694844a80f8f18bfc7e42
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 878160638579166402
-    second: cat_running_0
+      213: 927276807365459297
+    second: cat_running 1_0
   - first:
-      213: 1728838880376341187
-    second: cat_running_1
+      213: -8379774646985250305
+    second: cat_running 1_1
+  - first:
+      213: -1515129461495204126
+    second: cat_running 1_2
+  - first:
+      213: 8743187303298903143
+    second: cat_running 1_3
+  - first:
+      213: -1137043111818416032
+    second: cat_running 1_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,7 +125,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cat_running_0
+      name: cat_running 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2cccd36b27adf2c00800000000000000
-      internalID: 878160638579166402
+      spriteID: 16df977e7595edc00800000000000000
+      internalID: 927276807365459297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat_running_1
+      name: cat_running 1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -153,14 +162,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3c247ba4dc11ef710800000000000000
-      internalID: 1728838880376341187
+      spriteID: ff9ae944b5f05bb80800000000000000
+      internalID: -8379774646985250305
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat_running_2
+      name: cat_running 1_2
       rect:
         serializedVersion: 2
         x: 64
@@ -173,16 +182,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: c3cd51063b82d094fab057bc34feb2f4
-      internalID: 1039063215
+      spriteID: 2e679d248cd29fae0800000000000000
+      internalID: -1515129461495204126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat_running_3
+      name: cat_running 1_3
       rect:
         serializedVersion: 2
         x: 96
@@ -195,16 +204,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 26751238c3400b84ca974d9d8f8cd8f5
-      internalID: 324393922
+      spriteID: 76c26d9678a065970800000000000000
+      internalID: 8743187303298903143
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat_running_4
+      name: cat_running 1_4
       rect:
         serializedVersion: 2
         x: 128
@@ -217,16 +226,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 4c47569c89604694caa61a8e3171e132
-      internalID: 656178051
+      spriteID: 06032c960596830f0800000000000000
+      internalID: -1137043111818416032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat_running_5
+      name: cat_running 1_5
       rect:
         serializedVersion: 2
         x: 160
@@ -241,8 +250,140 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e20688da36160e84cbffabff2fa8a762
-      internalID: -1644599461
+      spriteID: bfb6871bd6509ce46b6a5115692d37fc
+      internalID: -1980591750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_running 1_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8df332c6b710fca42975c95ff1886242
+      internalID: -2002088786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_running 1_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3390a808da2728148983d9f833168dab
+      internalID: -344622639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_running 1_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffe9571d318f2334691261d47ccda4d0
+      internalID: -803175879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_running 1_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c07d3af101149384d9a6bc21a3fea462
+      internalID: 1395483703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_running 1_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d03642e2ab370984992a32f4a47afad6
+      internalID: 992426204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_running 1_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa57c779ad70b954c9218f090d42aa85
+      internalID: 853773941
       vertices: []
       indices: 
       edges: []
@@ -251,7 +392,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c586fcd2f40dea74aad759070de2a430
+    spriteID: 37c3c6e30e718194ba5735111c74102a
     internalID: 0
     vertices: []
     indices: 
@@ -263,12 +404,18 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      cat_running_0: 878160638579166402
-      cat_running_1: 1728838880376341187
-      cat_running_2: 1039063215
-      cat_running_3: 324393922
-      cat_running_4: 656178051
-      cat_running_5: -1644599461
+      cat_running 1_0: 927276807365459297
+      cat_running 1_1: -8379774646985250305
+      cat_running 1_10: 992426204
+      cat_running 1_11: 853773941
+      cat_running 1_2: -1515129461495204126
+      cat_running 1_3: 8743187303298903143
+      cat_running 1_4: -1137043111818416032
+      cat_running 1_5: -1980591750
+      cat_running 1_6: -2002088786
+      cat_running 1_7: -344622639
+      cat_running 1_8: -803175879
+      cat_running 1_9: 1395483703
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

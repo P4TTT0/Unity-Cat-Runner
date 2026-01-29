@@ -1,28 +1,34 @@
 fileFormatVersion: 2
-guid: 9efeff586510d234c86a9992eb674ee7
+guid: 7703cef4be47dbc4e8e644598756bfff
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2587706737540376869
-    second: cat_idle_0
+      213: -8570165676179087606
+    second: cat_idle 1_0
   - first:
-      213: -322672845186744888
-    second: cat_idle_1
+      213: 8492152838294288261
+    second: cat_idle 1_1
   - first:
-      213: -4314984216666195884
-    second: cat_idle_2
+      213: 7538126749561105166
+    second: cat_idle 1_2
   - first:
-      213: 105753160185580545
-    second: cat_idle_3
+      213: -2786111120479857197
+    second: cat_idle 1_3
   - first:
-      213: -1763858046133907374
-    second: cat_idle_4
+      213: -7467124991838112540
+    second: cat_idle 1_4
   - first:
-      213: -8621629855350745536
-    second: cat_idle_5
+      213: 3560130088042842735
+    second: cat_idle 1_5
   - first:
-      213: 2174560982455349002
-    second: cat_idle_6
+      213: -3301236145876100320
+    second: cat_idle 1_6
+  - first:
+      213: 9140740679475156183
+    second: cat_idle 1_7
+  - first:
+      213: -6507401131943242516
+    second: cat_idle 1_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -131,7 +137,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cat_idle_0
+      name: cat_idle 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -146,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 529aaf9419169e320800000000000000
-      internalID: 2587706737540376869
+      spriteID: a0f991569b7a01980800000000000000
+      internalID: -8570165676179087606
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat_idle_1
+      name: cat_idle 1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -168,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8cdbaf3c1c2a58bf0800000000000000
-      internalID: -322672845186744888
+      spriteID: 5873bd853003ad570800000000000000
+      internalID: 8492152838294288261
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat_idle_2
+      name: cat_idle 1_2
       rect:
         serializedVersion: 2
         x: 64
@@ -190,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 458b13a77b81e14c0800000000000000
-      internalID: -4314984216666195884
+      spriteID: e0ba57b075ecc9860800000000000000
+      internalID: 7538126749561105166
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat_idle_3
+      name: cat_idle 1_3
       rect:
         serializedVersion: 2
         x: 96
@@ -212,14 +218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 10c8cba50f5b77100800000000000000
-      internalID: 105753160185580545
+      spriteID: 3d5580782beb559d0800000000000000
+      internalID: -2786111120479857197
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat_idle_4
+      name: cat_idle 1_4
       rect:
         serializedVersion: 2
         x: 128
@@ -234,14 +240,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 25059fdc3748587e0800000000000000
-      internalID: -1763858046133907374
+      spriteID: 4e43c08e1617f5890800000000000000
+      internalID: -7467124991838112540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat_idle_5
+      name: cat_idle 1_5
       rect:
         serializedVersion: 2
         x: 160
@@ -256,14 +262,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0469aee6351d95880800000000000000
-      internalID: -8621629855350745536
+      spriteID: f6a49f3e37f186130800000000000000
+      internalID: 3560130088042842735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat_idle_6
+      name: cat_idle 1_6
       rect:
         serializedVersion: 2
         x: 192
@@ -278,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a0feca531b79d2e10800000000000000
-      internalID: 2174560982455349002
+      spriteID: 02b106d4737af22d0800000000000000
+      internalID: -3301236145876100320
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat_idle_7
+      name: cat_idle 1_7
       rect:
         serializedVersion: 2
         x: 224
@@ -298,16 +304,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3afcb7620d3a6994cb421fc327e003b1
-      internalID: -1961517863
+      spriteID: 7d45410e73f6ade70800000000000000
+      internalID: 9140740679475156183
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat_idle_8
+      name: cat_idle 1_8
       rect:
         serializedVersion: 2
         x: 256
@@ -320,16 +326,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e800dc9ac9520f44b9bb7fc80dee6d85
-      internalID: 868969909
+      spriteID: ce45c8fe52111b5a0800000000000000
+      internalID: -6507401131943242516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat_idle_9
+      name: cat_idle 1_9
       rect:
         serializedVersion: 2
         x: 288
@@ -344,8 +350,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23c4806037275b143b228b4f7b67e7da
-      internalID: -1036814039
+      spriteID: f37682ca80a5a5e458939689905cb7bb
+      internalID: -1152082373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_idle 1_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d23eacd33455b794590647b516e29b91
+      internalID: -322500790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_idle 1_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0da2915003aa87449a1d5c073cace118
+      internalID: 1236913590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_idle 1_12
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74186b5273776284bbbb02f260bd29bf
+      internalID: 1868901213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_idle 1_13
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 949e3720f6ef4e241b11257d075f9372
+      internalID: -546310857
       vertices: []
       indices: 
       edges: []
@@ -354,7 +448,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 64b81399ad3b5fe49b903f0a28835717
+    spriteID: 4839d13a20b69ef449ce12f1dedaa494
     internalID: 0
     vertices: []
     indices: 
@@ -366,16 +460,20 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      cat_idle_0: 2587706737540376869
-      cat_idle_1: -322672845186744888
-      cat_idle_2: -4314984216666195884
-      cat_idle_3: 105753160185580545
-      cat_idle_4: -1763858046133907374
-      cat_idle_5: -8621629855350745536
-      cat_idle_6: 2174560982455349002
-      cat_idle_7: -1961517863
-      cat_idle_8: 868969909
-      cat_idle_9: -1036814039
+      cat_idle 1_0: -8570165676179087606
+      cat_idle 1_1: 8492152838294288261
+      cat_idle 1_10: -322500790
+      cat_idle 1_11: 1236913590
+      cat_idle 1_12: 1868901213
+      cat_idle 1_13: -546310857
+      cat_idle 1_2: 7538126749561105166
+      cat_idle 1_3: -2786111120479857197
+      cat_idle 1_4: -7467124991838112540
+      cat_idle 1_5: 3560130088042842735
+      cat_idle 1_6: -3301236145876100320
+      cat_idle 1_7: 9140740679475156183
+      cat_idle 1_8: -6507401131943242516
+      cat_idle 1_9: -1152082373
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
