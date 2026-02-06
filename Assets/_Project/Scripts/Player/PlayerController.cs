@@ -52,6 +52,7 @@ namespace CatRunner.Player
         private static readonly int IsGroundedHash = Animator.StringToHash("IsGrounded");
         private static readonly int YVelocityHash = Animator.StringToHash("YVelocity");
         private static readonly int IsMovingHash = Animator.StringToHash("IsMoving");
+        private static readonly int IsCrouchedHash = Animator.StringToHash("IsCrouched");
 
         private void Awake()
         {
@@ -128,6 +129,9 @@ namespace CatRunner.Player
             if (standingCollider != null) standingCollider.enabled = !crouch;
             if (crouchCollider != null) crouchCollider.enabled = crouch;
 
+            // Update animator
+            animator.SetBool(IsCrouchedHash, crouch);
+
             // 1) Fast fall si está en el aire
             if (!_isGrounded)
             {
@@ -176,6 +180,7 @@ namespace CatRunner.Player
             animator.SetBool(IsMovingHash, false);
             animator.SetBool(IsGroundedHash, true);
             animator.SetFloat(YVelocityHash, 0f);
+            animator.SetBool(IsCrouchedHash, false);
         }
 
         private void MoveToAnchor()
