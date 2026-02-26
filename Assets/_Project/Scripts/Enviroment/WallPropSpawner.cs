@@ -89,7 +89,7 @@ namespace CatRunner.Environment
                 spawnRoot
             );
 
-            var despawn = instance.GetComponent<WallPropDespawn>();
+            var despawn = instance.GetComponent<DestroyDespawn>();
             if (despawn != null)
                 despawn.OnDespawned += HandleDespawn;
 

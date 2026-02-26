@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4610808517530635286}
   - component: {fileID: 480927772136318127}
   - component: {fileID: -1035003638443415725}
+  - component: {fileID: 449709772394041152}
   m_Layer: 0
   m_Name: Obstacle_02
   m_TagString: Obstacle
@@ -158,3 +159,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d442583bddf05241a171ecc440de1ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CatRunner.Environment.ObstacleMover
+--- !u!114 &449709772394041152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8250683773416915594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c239ab568f36cc248baaf5251976a46b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CatRunner.Environment.DestroyDespawn

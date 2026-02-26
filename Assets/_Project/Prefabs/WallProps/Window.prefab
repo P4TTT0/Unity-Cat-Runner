@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 995069007790717329}
   - component: {fileID: 3890479922881136746}
   - component: {fileID: 7445892778485539515}
-  - component: {fileID: 2713960448150691152}
+  - component: {fileID: 4040718294742930504}
   m_Layer: 10
   m_Name: Window
   m_TagString: Untagged
@@ -139,7 +139,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.8, y: 3}
   m_EdgeRadius: 0
---- !u!114 &2713960448150691152
+--- !u!114 &4040718294742930504
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,6 +148,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3414111795925412782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22d2e311bfa67f64b81fc40ee2b6617c, type: 3}
+  m_Script: {fileID: 11500000, guid: c239ab568f36cc248baaf5251976a46b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CatRunner.Environment.WallPropDespawn
+  m_EditorClassIdentifier: Assembly-CSharp::CatRunner.Environment.DestroyDespawn

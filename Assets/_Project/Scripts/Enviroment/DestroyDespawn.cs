@@ -5,7 +5,7 @@ using System;
 namespace CatRunner.Environment
 {
     [DisallowMultipleComponent]
-    public sealed class WallPropDespawn : MonoBehaviour, IDespawnHandler
+    public sealed class DestroyDespawn : MonoBehaviour, IDespawnHandler
     {
         public Action OnDespawned;
 

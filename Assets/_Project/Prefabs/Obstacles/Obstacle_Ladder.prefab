@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 1280416775541175560}
   - component: {fileID: 6070057990171724161}
   - component: {fileID: 4011185864519430967}
+  - component: {fileID: -901190654979495352}
   m_Layer: 0
   m_Name: Obstacle_Ladder
   m_TagString: Obstacle
@@ -200,6 +201,18 @@ MonoBehaviour:
   heightMode: 0
   fixedOffsetY: 0
   randomOffsetYRange: {x: 1, y: 2.5}
+--- !u!114 &-901190654979495352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6706933146631800749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c239ab568f36cc248baaf5251976a46b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CatRunner.Environment.DestroyDespawn
 --- !u!1 &8821359493692940719
 GameObject:
   m_ObjectHideFlags: 0
