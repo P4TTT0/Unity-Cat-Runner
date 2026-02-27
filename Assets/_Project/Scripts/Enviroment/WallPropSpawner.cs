@@ -61,7 +61,7 @@ namespace CatRunner.Environment
                     SpawnProp();
             }
 
-            if (state == GameState.GameOver || state == GameState.Idle)
+            if (state == GameState.Idle)
             {
                 ClearAll();
             }
@@ -102,7 +102,7 @@ namespace CatRunner.Environment
         {
             _activeCount--;
 
-            if (GameManager.Instance.CurrentState == GameState.Playing)
+            if (GameManager.Instance != null && GameManager.Instance.CurrentState == GameState.Playing)
                 SpawnProp();
         }
 

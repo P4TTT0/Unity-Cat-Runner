@@ -42,7 +42,7 @@ namespace CatRunner.Environment
 
         private void HandleGameState(GameState state)
         {
-            if (state == GameState.Idle || state == GameState.ReturnToMenu)
+            if (state == GameState.Idle)
             {
                 ClearAllObstacles();
                 _distanceAccumulator = 0f;
