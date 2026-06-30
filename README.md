@@ -171,4 +171,7 @@ You are free to explore the code, but please do not redistribute it as a commerc
 
 ## 👤 Author
 
-Made as a personal learning project.
+Made by **P4TTT0**  
+- GitHub: https://github.com/P4TTT0
+- itch.io: https://p4ttt0.itch.io/
+
