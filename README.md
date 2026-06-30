@@ -2,6 +2,8 @@
 
 <img width="1280" height="720" alt="catrunner_preview" src="https://github.com/user-attachments/assets/a9f15443-b136-4cb5-a354-bfb3ba9a9fed" />
 
+> **(Work in progress...)**
+
 A 2D cat-themed **endless runner** built in **Unity** as a learning project.
 
 The game's signature hook: on the title screen, a ball of yarn hangs from a rope — you **swipe to cut it**, the camera does a quick fast-travel across the room, and the cat drops into the runner loop.
@@ -27,6 +29,15 @@ The project was built to practice:
 - Input handling with the new **Input System**
 - Camera transitions and game feel
 - Clean, namespace-based C# architecture
+- **Pixelart practice** — hand-painting every in-game visual (see below)
+
+---
+
+## 🎨 Pixelart & Assets
+
+A core part of this project was **learning pixelart from scratch**, alongside the code. The author hand-painted the game's visual identity: the cat (idle / run / jump / crouch), the ball of wool, the yarn, the cactus, the cucumber, the ladder, the door, the window, the room tile, and every parallax background layer (ground, stars, moon, clouds).
+
+**Most of the assets in the project are original work** created as part of the learning process. Everything under `Assets/_Project/Assets/` and `Assets/_Project/Prefabs/` is self-made. The only third-party content comes from the standard Unity packages shipped with the engine (URP defaults, TextMesh Pro examples, etc.).
 
 ---
 
