@@ -35,7 +35,7 @@ The project was built to practice:
 
 ## 🎨 Pixelart & Assets
 
-A core part of this project was **learning pixelart from scratch**, alongside the code. The author hand-painted the game's visual identity: the cat (idle / run / jump / crouch), the ball of wool, the yarn, the cactus, the cucumber, the ladder, the door, the window, the room tile, and every parallax background layer (ground, stars, moon, clouds).
+I focused on **learning pixelart from scratch** alongside the code, and hand-painted the game's visual identity: the cat (idle / run / jump / crouch), the ball of wool, the yarn, the cactus, the cucumber, the ladder, the door, the window, the room tile, and every parallax background layer (ground, stars, moon, clouds).
 
 **Most of the assets in the project are original work** created as part of the learning process. Everything under `Assets/_Project/Assets/` and `Assets/_Project/Prefabs/` is self-made. The only third-party content comes from the standard Unity packages shipped with the engine (URP defaults, TextMesh Pro examples, etc.).
 
