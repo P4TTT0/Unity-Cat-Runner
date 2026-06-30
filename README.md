@@ -1,6 +1,6 @@
 # CatRunner (Unity)
 
-![CatRunner](https://github.com/user-attachments/assets/PLACEHOLDER)
+<img width="1280" height="720" alt="catrunner_preview" src="https://github.com/user-attachments/assets/a9f15443-b136-4cb5-a354-bfb3ba9a9fed" />
 
 A 2D cat-themed **endless runner** built in **Unity** as a learning project.
 
